@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stream_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/stream_activity_background"
+    android:animateLayoutChanges="true"
+    tools:context="com.banasiak.android.nerdstream.presentation.stream.StreamActivity">
+
+    <VideoView
+        android:id="@+id/stream_video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ProgressBar
+        android:id="@+id/stream_loading_indicator"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/colorAccent"/>
+
+</FrameLayout>

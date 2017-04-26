@@ -28,6 +28,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".presentation.stream.StreamActivity"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.Fullscreen"/>
 
     </application>
 

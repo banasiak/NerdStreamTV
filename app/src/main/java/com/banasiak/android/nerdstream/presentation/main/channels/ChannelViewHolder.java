@@ -1,6 +1,7 @@
 package com.banasiak.android.nerdstream.presentation.main.channels;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,9 +9,11 @@ import android.widget.TextView;
 
 import com.banasiak.android.nerdstream.R;
 import com.banasiak.android.nerdstream.data.model.Channel;
+import com.banasiak.android.nerdstream.presentation.stream.StreamActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 class ChannelViewHolder extends RecyclerView.ViewHolder {
@@ -46,6 +49,13 @@ class ChannelViewHolder extends RecyclerView.ViewHolder {
         } else {
             hdIndicator.setVisibility(View.GONE);
         }
+    }
+
+    @OnClick
+    public void onRowClicked() {
+        Intent intent = new Intent(context, StreamActivity.class);
+        intent.putExtra(StreamActivity.EXTRA_STREAM_URL, channel.url());
+        context.startActivity(intent);
     }
 
 }

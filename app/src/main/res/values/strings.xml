@@ -13,4 +13,7 @@
     <string name="main_channel_recycler_pull_to_refresh">Pull to Refresh</string>
     <string name="main_menu_clear_cache">Clear Cache &amp; Restart</string>
 
+    <!-- stream activity -->
+    <string name="stream_no_url">Unable to open stream URL</string>
+
 </resources>
