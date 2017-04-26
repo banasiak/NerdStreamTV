@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">NerdStream Debug</string>
+    <string name="app_name">NerdStream TV Debug</string>
     <string name="leak_canary_display_activity_label">NerdStream Leaks</string>
 </resources>

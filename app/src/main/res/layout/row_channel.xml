@@ -32,4 +32,13 @@
         tools:text="KSTPDT"
         tools:ignore="RtlSymmetry"/>
 
+    <ImageView
+        android:id="@+id/channel_hd_indicator"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_hd"
+        android:tint="@color/colorAccent"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/high_definition"/>
+
 </RelativeLayout>

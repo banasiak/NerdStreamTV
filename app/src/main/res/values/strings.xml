@@ -1,6 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- generic strings -->
     <string name="app_name">NerdStream TV</string>
+    <string name="high_definition">High Definition</string>
 
     <!-- main fragment -->
     <string name="main_toolbar_title">Channel List</string>

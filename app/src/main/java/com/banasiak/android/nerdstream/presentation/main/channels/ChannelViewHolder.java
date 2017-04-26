@@ -1,10 +1,9 @@
 package com.banasiak.android.nerdstream.presentation.main.channels;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.banasiak.android.nerdstream.R;
@@ -18,6 +17,7 @@ class ChannelViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.channel_row_number) TextView channelNumber;
     @BindView(R.id.channel_row_name) TextView channelName;
+    @BindView(R.id.channel_hd_indicator) ImageView hdIndicator;
 
     private final Context context;
     private Channel channel;
@@ -37,16 +37,14 @@ class ChannelViewHolder extends RecyclerView.ViewHolder {
         channelNumber.setText(channel.guideNumber());
         channelName.setText(channel.guideName());
 
-        tintChannelBackground();
+        displayHdIndicator();
     }
 
-    private void tintChannelBackground() {
+    private void displayHdIndicator() {
         if(channel.isHiDef() != null && channel.isHiDef()) {
-            ColorStateList colorStateList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorAccent));
-            channelNumber.setBackgroundTintList(colorStateList);
+            hdIndicator.setVisibility(View.VISIBLE);
         } else {
-            ColorStateList colorStateList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimary));
-            channelNumber.setBackgroundTintList(colorStateList);
+            hdIndicator.setVisibility(View.GONE);
         }
     }
 
