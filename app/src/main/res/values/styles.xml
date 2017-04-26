@@ -1,0 +1,58 @@
+<resources>
+
+    <style name="None"/>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:alertDialogTheme">@style/AppTheme.AlertDialog</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="AppTheme.Text.Snackbar" parent="None">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppTheme.AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonBarButtonStyle">@style/AppTheme.AlertDialog.DialogButton</item>
+    </style>
+
+    <style name="AppTheme.AlertDialog.DialogButton" parent="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Recycler.Channel.Row" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="AppTheme.Recycler.Channel.Empty" parent="AppTheme">
+        <item name="android:tint">@color/channel_recycler_empty_tint</item>
+    </style>
+
+    <style name="AppTheme.Recycler.Channel.Empty.Text">
+        <item name="android:textColor">@color/channel_recycler_empty_tint</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="AppTheme.Recycler.Channel.Empty.SubText">
+        <item name="android:textColor">@color/channel_recycler_empty_tint</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+</resources>

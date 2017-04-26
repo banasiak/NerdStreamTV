@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#00BCD4</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#5C5B5C</color>
+    <color name="red">#B71C1C</color>
+
+    <color name="main_activity_background">@color/_gray300</color>
+    <color name="channel_recycler_empty_tint">@color/_gray500</color>
+
+    <color name="_gray200">#EEEEEE</color>
+    <color name="_gray300">#E0E0E0</color>
+    <color name="_gray400">#BDBDBD</color>
+    <color name="_gray500">#9E9E9E</color>
+    <color name="_gray900">#4A4A4A</color>
+
+</resources>

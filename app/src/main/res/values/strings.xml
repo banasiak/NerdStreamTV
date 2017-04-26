@@ -1,0 +1,13 @@
+<resources>
+    <!-- generic strings -->
+    <string name="app_name">NerdStream TV</string>
+
+    <!-- main fragment -->
+    <string name="main_toolbar_title">Channel List</string>
+    <string name="main_api_retrieve_channels_error">Unable to retrieve channel list.</string>
+    <string name="main_api_retrieve_channels_error_retry">Retry</string>
+    <string name="main_channel_recycler_no_channels">No Channels</string>
+    <string name="main_channel_recycler_pull_to_refresh">Pull to Refresh</string>
+    <string name="main_menu_clear_cache">Clear Cache &amp; Restart</string>
+
+</resources>

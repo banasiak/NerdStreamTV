@@ -1,0 +1,189 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.jakewharton.hugo'
+apply plugin: 'com.fernandocejas.frodo'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        applicationId 'com.banasiak.android.nerdstream'
+        minSdkVersion 21
+        targetSdkVersion 25
+        multiDexEnabled true
+        versionCode 1
+        versionName '1.0'
+
+        testApplicationId 'com.banasiak.android.nerdstream.test'
+        testInstrumentationRunner 'com.banasiak.android.nerdstream.GldPlusTestRunner'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("$rootDir/keystore/debug.jks")
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+
+        release {
+            storeFile file("$rootDir/keystore/release.jks")
+            storePassword keystorePassword
+            keyAlias 'key_alias'
+            keyPassword aliasKeyPassword
+        }
+    }
+
+    buildTypes {
+        debug {
+            resValue 'string', 'api_path', 'http://192.168.86.105'
+            applicationIdSuffix = '.debug'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            resValue 'string', 'api_path', 'http://192.168.86.105'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+
+    String appCompatVersion = '25.3.1'
+    String autoValueVersion = '1.2'
+    String autoValueMoshiVersion = '0.4.3'
+    String butterknifeVersion = '8.5.1'
+    String daggerVersion = '2.9'
+    String icepickVersion = '3.1.0'
+    String leakCanaryVersion = '1.5'
+    String okHttpVersion = '3.6.0'
+    String playServicesVersion = '10.2.1'
+    String retrofitVersion = '2.2.0'
+    String stethoVersion = '1.4.2'
+
+    // arrow
+    compile 'com.fernandocejas:arrow:1.0.0'
+
+    // autovalue
+    provided "com.google.auto.value:auto-value:$autoValueVersion"
+    apt "com.google.auto.value:auto-value:$autoValueVersion"
+
+    // butterknife
+    apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
+
+    // colored SwipeRefreshLayout
+    compile 'com.github.banasiak:ColoredSwipeRefreshLayout:0.1'
+
+    // dagger
+    apt "com.google.dagger:dagger-compiler:$daggerVersion"
+    compile "com.google.dagger:dagger:$daggerVersion"
+
+    // easy permissions
+    compile 'pub.devrel:easypermissions:0.3.0'
+
+    // JSR-310 Time
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.4'
+    testCompile 'org.threeten:threetenbp:1.3.3'
+
+    // icepick
+    compile "frankiesardo:icepick:$icepickVersion"
+    provided "frankiesardo:icepick-processor:$icepickVersion"
+
+    // job manager
+    compile 'org.whispersystems:jobmanager:1.0.2'
+
+    // moshi
+    compile 'com.squareup.moshi:moshi:1.4.0'
+    apt "com.ryanharter.auto.value:auto-value-moshi:$autoValueMoshiVersion"
+    provided "com.ryanharter.auto.value:auto-value-moshi-annotations:$autoValueMoshiVersion"
+
+    // play services
+    compile "com.google.android.gms:play-services-location:$playServicesVersion"
+
+    // process phoenix
+    compile 'com.jakewharton:process-phoenix:2.0.0'
+
+    // retrofit
+    compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    compile 'com.squareup.okio:okio:1.11.0'
+
+    // ripple background effect
+    compile 'com.skyfishjy.ripplebackground:library:1.0.1'
+
+    // rxjava
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.4'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
+
+    // support library
+    compile "com.android.support:appcompat-v7:$appCompatVersion"
+    compile "com.android.support:cardview-v7:$appCompatVersion"
+    compile "com.android.support:design:$appCompatVersion"
+    compile "com.android.support:recyclerview-v7:$appCompatVersion"
+    compile "com.android.support:support-annotations:$appCompatVersion"
+    compile "com.android.support:support-v13:$appCompatVersion"
+
+    // leak canary
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+
+    // stetho
+    debugCompile "com.facebook.stetho:stetho:$stethoVersion"
+    debugCompile "com.facebook.stetho:stetho-okhttp:$stethoVersion"
+    debugCompile "com.facebook.stetho:stetho-timber:$stethoVersion@aar"
+
+    // timber
+    compile 'com.jakewharton.timber:timber:4.4.0'
+
+    // testing
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.5.0'
+    testCompile 'com.google.truth:truth:0.31'
+
+    // ui testing
+    androidTestCompile "com.android.support:support-annotations:$appCompatVersion"
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.crittercism.dexmaker:dexmaker:1.4'
+    androidTestCompile 'com.crittercism.dexmaker:dexmaker-dx:1.4'
+    androidTestCompile 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
+    androidTestCompile 'com.squareup.assertj:assertj-android:1.1.1'
+    androidTestCompile 'org.mockito:mockito-core:1.10.19'
+    androidTestApt "com.google.dagger:dagger-compiler:$daggerVersion"
+}

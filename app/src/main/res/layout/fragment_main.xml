@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.banasiak.android.nerdstream.presentation.main.MainActivity">
+
+    <com.banasiak.android.library.csrl.ColoredSwipeRefreshLayout
+        android:id="@+id/main_channel_swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:animationColorArray="@array/swipe_refresh_colors">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_channel_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/main_channel_recycler_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:src="@drawable/ic_live_tv"
+                    tools:ignore="ContentDescription"
+                    style="@style/AppTheme.Recycler.Channel.Empty"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/main_channel_recycler_no_channels"
+                    style="@style/AppTheme.Recycler.Channel.Empty.Text"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingBottom="48dp"
+                    android:text="@string/main_channel_recycler_pull_to_refresh"
+                    style="@style/AppTheme.Recycler.Channel.Empty.SubText"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </com.banasiak.android.library.csrl.ColoredSwipeRefreshLayout>
+
+</LinearLayout>
